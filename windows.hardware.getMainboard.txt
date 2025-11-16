@@ -1,0 +1,3 @@
+Powershell
+
+Get-WmiObject Win32_BaseBoard | Format-Table –Auto Manufacturer,Product,SerialNumber,Version
