@@ -1,0 +1,5 @@
+Fractional seconds are allowed. First run will give them for chapter marks.
+Will keep all audio, video and subtitles and cut at nearest keyframe.
+
+Example:
+ffmpeg -ss 10974.421792s -to 13930.976000s -i "Disc.mkv" -c copy -map:s 0 "Chapter3.mkv" -y
