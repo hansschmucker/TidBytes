@@ -1,0 +1,17 @@
+Currently best played on Xenia Canary with the Xbox360 version.
+https://github.com/xenia-canary/xenia-canary
+
+PS3 version cannot be upscaled and is locked at 30FPS without any patches available.
+
+Make sure to set
+draw_resolution_scale_x = 3 
+draw_resolution_scale_y = 3 
+use_fuzzy_alpha_epsilon = true
+vsync = false
+in xenia-canary.config.toml
+
+DON'T SET IT TO ANYTHING ELSE, any other value besides will corrupt the image (especially 2/1440p).
+https://github.com/xenia-canary/game-patches has 60fps and brightness patch
+Enable in patches\545407EE - The Darkness.patch.toml
+name = "Bright Lighting Fix" : is_enabled = true
+name = "60 FPS" : is_enabled = true
