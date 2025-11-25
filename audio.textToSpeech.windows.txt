@@ -1,0 +1,24 @@
+Windows still contains a very simple, but incredibly lightweight TTL that's super easy to use in C#
+
+Just remember you need the voices installed. Powershell makes it easiest
+
+Find voice with
+ Get-WindowsCapability -Online | ? Name -like Language.TextToSpeech~~~* | ? State -like NotPresent | Select -Property Name
+
+install with
+ Add-WindowsCapability -Online -Name "MYVOICE"
+
+You can use it with
+ var synth=new System.Speech.Synthesis.SpeechSynthesizer()
+
+Assign a voice with:
+ var voice=synth.GetInstalledVoices().OfType<InstalledVoice>().Where(a =>
+  a.VoiceInfo.Culture.TwoLetterISOLanguageName.ToLower().Contains(lang)
+  && a.VoiceInfo.Name.ToLower().Contains(voiceName) ).FirstOrDefault();
+ synth.SelectVoice(voice.VoiceInfo.Name);
+
+Now all you got to do is play
+ synth.Speak("Whatever");
+
+If you want to record it to a wav just set a destination
+ synth.SetOutputToWaveFile("out.wav");
