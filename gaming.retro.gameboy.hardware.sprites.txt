@@ -1,0 +1,18 @@
+Just a note because it took me a minute to understand:
+
+The bitmap format used by the gameboy uses 2 bits per pixel... but they are not in sequence: For every bitmap there's every odd bit first, then every even bit.
+
+So
+
+000000011011100100
+
+is saved as 
+
+0 0 0 0 1 1 1 0 0 
+ 0 0 0 1 0 1 0 1 0
+
+->
+
+000011100000101010
+
+And that's per sprite (8x8 or 8x16).
