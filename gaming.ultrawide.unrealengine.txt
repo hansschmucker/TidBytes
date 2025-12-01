@@ -1,0 +1,4 @@
+Pretty much every unreal 4+ works on ultrawides if you add this to Engine.ini
+
+[/script/engine.localplayer]
+AspectRatioAxisConstraint=AspectRatio_MaintainYFOV
