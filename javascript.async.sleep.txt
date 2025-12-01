@@ -1,0 +1,3 @@
+Just bind setTimeout to a promise resolver
+
+await new Promise((o)=>window.setTimeout(o,2000))
