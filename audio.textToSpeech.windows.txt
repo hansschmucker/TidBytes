@@ -1,4 +1,5 @@
 Windows still contains a very simple, but incredibly lightweight TTL that's super easy to use in C#
+Word of warning though, IIS/ASPX doesn't like it.
 
 Just remember you need the voices installed. Powershell makes it easiest
 
