@@ -1,0 +1,6 @@
+For German MKVs (batch) to move to parent directory
+disposition default is useful, because you can do find "1|deu" to just move files where German is the default language.
+
+FOR /F "delims=" %%i in ('dir /b *.mkv') DO (
+  FOR /F "delims=" %%j in ('ffprobe "%%~i" -v error -show_entries stream^=index:disposition^=default^,forced:stream_tags^=language -select_streams a -of compact^=p^=0:nk^=1^|find "deu"') DO MOVE "%%~i" ..\
+)
