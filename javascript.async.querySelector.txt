@@ -1,0 +1,20 @@
+mutation observer makes it easy to wait for a node to appear.
+
+Document.prototype.querySelectorAsync = 
+HTMLElement.prototype.querySelectorAsync = 
+	async function(selector){
+		var initial=this.querySelector(selector);
+		if(initial)
+			return initial;
+		
+		return new Promise(function (onDone,onError){
+			var obs=new MutationObserver(function(selector,onDone,onError,mutationList,observer){
+				var r=this.querySelector(selector);
+				if(r){
+					observer.disconnect();
+					onDone(r);
+				}
+			}.bind(this,selector,onDone,onError));
+			obs.observe(this, { attributes: true, childList: true, subtree: true });
+		}.bind(this));
+	};
